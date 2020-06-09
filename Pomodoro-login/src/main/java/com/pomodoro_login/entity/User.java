@@ -1,16 +1,36 @@
 package com.pomodoro_login.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class User {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	
+	@Column
 	private String username;
+	
+	@Column
 	private String password;
+	
+	@Column
 	private String email;
-	private String role;
+	
+	@Column
+	@Enumerated(EnumType.ORDINAL)
+	private Role role;
 	
 	public User() {}
 	
-	public User(String username, String password, String email, String role) {
+	public User(String username, String password, String email, Role role) {
 		this.username = username;
 		this.password = password;
 		this.email = email;
@@ -49,11 +69,11 @@ public class User {
 		this.email = email;
 	}
 
-	public String getRole() {
+	public Role getRole() {
 		return role;
 	}
 
-	public void setRole(String role) {
+	public void setRole(Role role) {
 		this.role = role;
 	}
 
