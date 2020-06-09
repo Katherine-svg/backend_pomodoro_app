@@ -28,13 +28,19 @@ public class User {
 	@Enumerated(EnumType.ORDINAL)
 	private Role role;
 	
+	@Column
+	@Enumerated(EnumType.ORDINAL)
+	private Status accStatus;
+	
 	public User() {}
 	
-	public User(String username, String password, String email, Role role) {
+	public User(String username, String password
+			, String email, Role role, Status accStatus) {
 		this.username = username;
 		this.password = password;
 		this.email = email;
 		this.role = role;
+		this.accStatus = accStatus;
 	}
 
 	public long getId() {
@@ -77,11 +83,19 @@ public class User {
 		this.role = role;
 	}
 
+	
+	public Status getAccStatus() {
+		return accStatus;
+	}
+
+	public void setAccStatus(Status accStatus) {
+		this.accStatus = accStatus;
+	}
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", email=" + email + ", role="
-				+ role + "]";
+				+ role + ", accStatus=" + accStatus + "]";
 	}
-	
 	
 }
