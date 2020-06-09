@@ -5,14 +5,14 @@ public enum Role {
 	USER(1),
 	ADMIN(2);
 	
-	private int roleId;
+	private int statusId;
 
 	Role(int num) {
-		this.roleId = num;
+		this.statusId = num;
 	}
 
-	public int getRoleId() {
-		return roleId;
+	public int getStatusId() {
+		return statusId;
 	}	
 
 }
